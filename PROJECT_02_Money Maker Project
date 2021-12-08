@@ -1,0 +1,40 @@
+using System;
+
+namespace MoneyMaker
+{
+  class MainClass
+  {
+    public static void Main(string[] args)
+    {
+
+      //Defining variables
+      int goldCoinValue = 10;
+      int silverCoinValue = 5;
+      double goldCoins;
+      double silverCoins;
+      double remainder;
+      
+      Console.WriteLine("Welcome to Money Maker!");
+      Console.WriteLine("Please enter the quantity you want to convert to coins:");
+      double userCents = Math.Floor(Convert.ToDouble(Console.ReadLine()));
+      Console.WriteLine($"{userCents} cents is equal too..");
+    
+    /*
+    TO find the maximun number of gold coins that "fit" into
+    the amount (e.g. one gold coin fits into 11 cents)
+    1. Divide the amount by the value of a gold coin
+    2. Round down to the nearest integer
+    3. Store the result in a double called goldCoins;
+    */
+    
+    goldCoins = Math.Floor(userCents/goldCoinValue);
+    Console.WriteLine($"Golden Coins: {goldCoins}");
+    remainder = userCents % goldCoinValue;
+    silverCoins = Math.Floor(remainder/silverCoinValue);
+    Console.WriteLine($"Silver Coins: {silverCoins}");
+    remainder = remainder % silverCoinValue;
+    Console.WriteLine($"Bronze Coins: {remainder}");
+    }
+    
+  }
+}
