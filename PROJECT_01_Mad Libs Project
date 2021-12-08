@@ -1,0 +1,94 @@
+using System;
+
+namespace MadLibs
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      /*
+      This program is for creating a Mad Libs game:
+      Author: Adrian Coronado
+      */
+
+
+      // Let the user know that the program is starting:
+      Console.WriteLine("Welcome to Mad Libs\nplease wait...\n\n");
+
+      // Give the Mad Lib a title:
+      string title = "Anxiety";
+
+      Console.WriteLine(title);
+      // Define user input and variables:
+
+
+      // The template for the story:
+      //Asking for the main character's name
+      Console.WriteLine("Enter a name for your character: ");
+      string mainCharacter = Console.ReadLine();
+      Console.WriteLine();
+      //Asking for the objectives:
+      Console.WriteLine("Please enter an adjective:\nExample: sad, blue, happy");
+      string adjective1 = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please enter another adjective:");
+      string adjective2 = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please enter the last adjective:");
+      string adjective3 = Console.ReadLine();
+      Console.WriteLine();
+
+      //Asking for vers
+      Console.WriteLine("Please, enter a verb:\nExample: sit, eat, sleep");
+      string verb1 = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter a noun:\nRemember that a noun is a person ('girl'), place ('cabin'), or thing ('toaster')");
+      string noun1 = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter another noun:");
+      string noun2 = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter an animal:");
+      string animal = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter a food:");
+      string food = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter a fruit:");
+      string fruit = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter a superhero:");
+      string superhero = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter a country:");
+      string country = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter a dessert:");
+      string dessert = Console.ReadLine();
+      Console.WriteLine();
+
+      Console.WriteLine("Please, enter a year:");
+      string year = Console.ReadLine();
+      Console.WriteLine();
+
+      string story = $"This morning {mainCharacter} woke up feeling {adjective1}. 'It is going to be a {adjective2} day!' Outside, a bunch of {animal}s were protesting to keep {food} in stores. They began to {verb1} to the rhythm of the {noun1}, which made all the {fruit}s very {adjective3}. Concerned, {mainCharacter} texted {superhero}, who flew {mainCharacter} to {country} and dropped {mainCharacter} in a puddle of frozen {dessert}. {mainCharacter} woke up in the year {year}, in a world where {noun2}s ruled the world.";
+
+      Console.Clear();
+      Console.WriteLine($"Here is your story:\n\n{story}");
+
+
+      // Print the story:
+
+    }
+  }
+}
