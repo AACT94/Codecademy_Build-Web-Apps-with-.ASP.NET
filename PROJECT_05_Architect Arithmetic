@@ -1,0 +1,44 @@
+using System;
+
+namespace ArchitectArithmetic
+{
+  class Program
+  {
+    public static void Main(string[] args)
+    {
+      //Costo de material
+      double costFlooringMaterial = 180;
+
+      //Calculo del Area
+      double totalArea = Trian(750,500) + Rect(1500,2500) + ((Circ(375))/2);
+      //Calculo del precio
+      double totalCost = CalculateTotalCost(totalArea,costFlooringMaterial);
+      Console.WriteLine($"The total area of the building is {String.Format("{0:n}", Math.Round(totalArea,2))} m2 and the cost for the flooring material is {costFlooringMaterial} per m2. In conclusion, the total price for the construction is {String.Format("{0:n}",Math.Round(totalCost,2))}");
+    }
+    
+    //Calcular el area de un rectangulo
+    public static double Rect(double length, double width)
+    {
+      return length * width;
+    }
+
+    //Calcular el area de un circulo
+    public static double Circ(double radius)
+    {
+      return Math.PI * Math.Pow(radius,2);
+    }
+
+    //Calcular el area de un triangulo
+    public static double Trian(double bottom, double height)
+    {
+      return 0.5 * bottom * height;
+    }
+
+    //Calcular el costo total
+    public static double CalculateTotalCost (double area, double flooringMaterial){
+      return area * flooringMaterial;
+
+    
+    }
+  }
+}
