@@ -1,0 +1,87 @@
+using System;
+
+namespace CaesarCipher
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {      
+      Console.WriteLine("Enter your text:");
+      string textToEncrypt = Console.ReadLine().ToLower();
+      Console.WriteLine("Enter your key: ");
+      int keyToEncrypt = Convert.ToInt32(Console.ReadLine());
+      Console.WriteLine(Encrypt(textToEncrypt,keyToEncrypt));
+      
+      /*
+      //=========Method still pending to implement
+      Console.WriteLine("\nEnter your encrypted text:");
+      string textToDecrypt = Console.ReadLine().ToLower();
+      Console.WriteLine("Enter your key: ");
+      int keyToDecrypt = Convert.ToInt32(Console.ReadLine());
+      Console.WriteLine(Decrypt(textToDecrypt,keyToDecrypt));
+      //==========================================
+      */
+      
+    }
+    static string Encrypt(string message, int key)
+    {
+      char[] alphabet = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+      char[] specialSymbols = new char [] {'~','!','@','#','$','%','^',
+      '&','*','(',')','_','-','+','+'};
+      char [] secretMessage = message.ToCharArray();
+      char [] encryptedMessage = new char[secretMessage.Length];
+
+      for (int i = 0; i <secretMessage.Length;i++)
+      {
+        char letter = secretMessage[i];
+        if (Array.Exists(specialSymbols, element => element == letter))
+        {
+          continue;
+        }
+        int position = Array.IndexOf(alphabet,letter);
+        //We can “wrap around” by using the modulo operator: %. 
+        //On the line where you add 3 to the letter position, 
+        //surround the expression letterPosition + 3 with 
+        //parentheses and take the modulo of 26.
+        //Now the new letter position will never go past 26.
+        
+        position = (position + key) % 26;
+        letter = alphabet[position];
+        encryptedMessage[i] = letter;
+      }
+      return String.Join("", encryptedMessage);
+    }
+    
+    /*
+    //====METHOD STILL PENDING TO IMPLEMENT
+    static string Decrypt(string message, int key)
+    {
+      char[] alphabet = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+      char[] specialSymbols = new char [] {'~','!','@','#','$','%','^',
+      '&','*','(',')','_','-','+','+'};
+      char [] secretMessage = message.ToCharArray();
+      char [] decryptedMessage = new char[secretMessage.Length];
+
+      for (int i = 0; i <secretMessage.Length;i++)
+      {
+        char letter = secretMessage[i];
+        if (Array.Exists(specialSymbols, element => element == letter))
+        {
+          continue;
+        }
+        int position = Array.IndexOf(alphabet,letter);
+        //We can “wrap around” by using the modulo operator: %. 
+        //On the line where you add 3 to the letter position, 
+        //surround the expression letterPosition + 3 with 
+        //parentheses and take the modulo of 26.
+        //Now the new letter position will never go past 26.
+        
+        position = (position - key) % 26;
+        letter = alphabet[position];
+        decryptedMessage[i] = letter;
+      }
+      return String.Join("", decryptedMessage);
+    }
+    */
+  }
+}
